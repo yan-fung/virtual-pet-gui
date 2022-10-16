@@ -4,6 +4,7 @@ const DECREASE_HUNGER = 3;
 const MINIMUM_HUNGER = 0;
 const MINIMUM_FITNESS_LEVEL = 4;
 const MINIMUM_HUNGER_LEVEL = 5;
+const NOT_ALIVE_MSG = "Your pet is no longer alive :(";
 
 function Pet(name) {
     this.name = name;
@@ -19,12 +20,19 @@ Pet.prototype = {
 }
 
 Pet.prototype.growUp = function () {
-    this.age +=1;
-    this.hunger +=5;
-    this.fitness = this.fitness -3;
+    if (!this.isAlive) {
+        throw new Error(NOT_ALIVE_MSG);
+    }else{
+        this.age +=1;
+        this.hunger +=5;
+        this.fitness = this.fitness -3;
+    }
 }
 
 Pet.prototype.walk = function () {
+    if (!this.isAlive) {
+        throw new Error(NOT_ALIVE_MSG);
+    }
     if ((this.fitness + INCREASE_FITNESS) <= 10) {
         this.fitness += INCREASE_FITNESS;
     } else {
@@ -33,6 +41,9 @@ Pet.prototype.walk = function () {
 }
 
 Pet.prototype.feed = function () {
+    if (!this.isAlive) {
+        throw new Error(NOT_ALIVE_MSG)
+    }
     if((this.hunger - DECREASE_HUNGER) >= 0) {
         this.hunger -= DECREASE_HUNGER;
     } else {
@@ -41,6 +52,9 @@ Pet.prototype.feed = function () {
 }
 
 Pet.prototype.checkUp = function () {
+    if (!this.isAlive) {
+        throw new Error(NOT_ALIVE_MSG);
+    }
     if (this.fitness < MINIMUM_FITNESS_LEVEL && this.hunger >= MINIMUM_HUNGER_LEVEL) {
         return 'I am hungry AND I need a walk'
     }

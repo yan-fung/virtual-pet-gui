@@ -156,3 +156,16 @@ describe('constructor', () => {
         expect(pet.isAlive).toBe(false);
     });
   });
+
+  describe('isAlive', () => {
+    it('return true if the hunger is 9 or less, the fitness is 1 or more and the age is 29 or less', () => {
+        const pet = new Pet('fido');
+
+        pet.hunger = 8;
+        pet.fitness = 2;
+        pet.age = 28;
+        pet.isAlive;
+        
+        expect(pet.isAlive).toBe(true);
+    });
+  });

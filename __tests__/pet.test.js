@@ -178,3 +178,59 @@ describe('constructor', () => {
         expect(pet.isAlive).toBe(true);
     });
   });
+
+  describe('adoptChild', () => {
+    it('add a child to the array of children property that the first element is the child instance you passed as a parameter', () => {
+        const parent = new Pet('Skippy');
+        const child_one = new Pet('Kitty');
+
+        parent.adoptChild(child_one);
+
+        expect(parent.childred).toEqual([ { name: 'Kitty', age: 0, hunger: 0, fitness: 10, childred: [] } ]);
+    });
+    
+    it('Added two more childred for parent', () => {
+        const parent = new Pet('Skippy');
+        const child_one = new Pet('Kitty');
+        const child_two = new Pet('Nana');
+        const child_three = new Pet('Siumai');
+
+        parent.adoptChild(child_one);
+        parent.adoptChild(child_two);
+        parent.adoptChild(child_three);
+
+        expect(parent.childred).toEqual(
+            [ 
+                { name: 'Kitty', age: 0, hunger: 0, fitness: 10, childred: [] },
+                { name: 'Nana', age: 0, hunger: 0, fitness: 10, childred: [] },
+                { name: 'Siumai', age: 0, hunger: 0, fitness: 10, childred: [] }   
+            ]);
+    });
+
+    it('the age of child "Nana" is one after calling the growUp method', () => {
+        const parent = new Pet('Skippy');
+        const child_one = new Pet('Kitty');
+        const child_two = new Pet('Nana');
+        const child_three = new Pet('Siumai');
+
+        parent.adoptChild(child_one);
+        parent.adoptChild(child_two);
+        parent.adoptChild(child_three);
+
+        parent.childred[1].growUp();
+
+
+        expect(parent.childred[1].age).toEqual(1);
+    });
+
+  });
+
+  describe('haveBaby', () => {
+    it('create a child object to the Pet instance', () => {
+        const parent = new Pet('Xiaoxiao');
+
+        parent.haveBaby('Xuexue');
+
+        expect(parent.childred).toEqual([ { name: 'Xuexue', age: 0, hunger: 0, fitness: 10, childred: [] } ]);
+    });
+  });

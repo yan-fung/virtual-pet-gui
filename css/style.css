@@ -1,0 +1,25 @@
+html, body{
+    margin: 0;
+    height: 100%;
+    background-color: rgb(220, 201, 202);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#living-room{
+    background-image: url(../images/living-room.jpeg);
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    width: 600px;
+    height: 350px;
+    position: relative;
+    display: flex;
+    overflow-x: auto;
+
+}
+
+#pei-pei{
+    position: absolute;
+}

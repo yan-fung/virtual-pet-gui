@@ -1,0 +1,66 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <title>My Virtual Pet</title>
+</head>
+<body>
+    <div id="pet-container">
+        <div id="hunger-level">
+            <h4>Hunger Lv:</h4>
+            <div id="food"><img src="./images/sushi.png" alt=""></div>
+        </div>
+        <div id="fitness-level">
+            <h4>Fitness Lv:</h4>
+            <div id="fitness"><img src="./images/fitness-icon-png-8.jpeg" alt=""></div>
+            <div id="fitness"><img src="./images/fitness-icon-png-8.jpeg" alt=""></div>
+            <div id="fitness"><img src="./images/fitness-icon-png-8.jpeg" alt=""></div>
+            <div id="fitness"><img src="./images/fitness-icon-png-8.jpeg" alt=""></div>
+            <div id="fitness"><img src="./images/fitness-icon-png-8.jpeg" alt=""></div>
+            <div id="fitness"><img src="./images/fitness-icon-png-8.jpeg" alt=""></div>
+            <div id="fitness"><img src="./images/fitness-icon-png-8.jpeg" alt=""></div>
+            <div id="fitness"><img src="./images/fitness-icon-png-8.jpeg" alt=""></div>
+            <div id="fitness"><img src="./images/fitness-icon-png-8.jpeg" alt=""></div>
+            <div id="fitness"><img src="./images/fitness-icon-png-8.jpeg" alt=""></div>    
+        </div>
+    </div>
+    <div id="living-room">
+        <div id="age-container"></div>
+    </div>
+    <div id="pei-pei">
+        <img id="pet" src="./images/tumblr_oq91siQsuu1wq3wtao1_500.gif" alt="" width="130px" height="150px" >
+    </div>
+
+    <div id="function">
+        <button id="feed">FEED</button>
+        <button id="grow">GROW UP</button>
+        <button id="fitness-btn">FITNESS</button>
+    </div>
+
+
+    <script src="./src/controller.js"></script>
+    <script src="./src/pet.js"></script>
+    <script>
+        const pet = new Pet('Pei-Pei')
+        const controller = new Controller(pet);
+
+
+        document.querySelector('#feed').addEventListener('click', () => {
+            controller.feedPet()
+        })
+        document.querySelector('#grow').addEventListener('click', () => {
+            controller.growUp()
+        })
+        document.querySelector('#fitness-btn').addEventListener('click', () => {
+            controller.doExercise()
+        })
+
+    </script>
+
+</body>
+</html>
